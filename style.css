@@ -60,7 +60,7 @@ img {
 }
 
 .wrapper{
-    padding: 1rem;
+    margin: 1rem;
 }
 
 main {
@@ -128,6 +128,7 @@ header{
 .overlay{
     background-color: rgba(0,0,0,.25);
     position: absolute;
+    top: 0;
     width: 100vw;
     height: 100vh;
 }
@@ -146,20 +147,16 @@ nav{
     min-height: 100vh;
     position: absolute;
     right: 0;
+    top: 0;
     display: flex;
     flex-direction: column;
     width: var(--menu-width);
-    padding-inline: 1rem;
+    padding: 1rem;
     gap: 1rem;
 }
 
 .menu-btn[aria-expanded=false] + nav{
     visibility: collapse;
-    transform: translateX(var(--menu-width));
-}
-
-.menu-btn[aria-expanded=true] + nav{
-    transform: translateX(0);
 }
 
 .menu-btn[aria-label=Close]{
@@ -180,4 +177,16 @@ nav{
 .featured header{
     font-size: 2rem;
     font-weight: 800;
+}
+
+a.button{
+    padding-inline: 2em;
+    padding-block: .75em;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    width: fit-content;
+    background-color: var(--soft-red);
+    color: var(--off-white);
 }
