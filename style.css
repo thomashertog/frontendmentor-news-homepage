@@ -94,7 +94,7 @@ header{
     padding: 1em;
 }
 
-.new ul{
+ul, ol{
     margin:0;
     padding:0;
     list-style: none;
@@ -209,14 +209,33 @@ a.button{
     margin-block-start: .5em;
 }
 
-.popular ol{
-    counter-reset: popular;
+.popular .featured-article{
+    color: var(--grayish-blue);
+    font-size: 2em;
+    font-weight: 700;
 }
 
-.popular ol > li{
-    counter-increment: popular;
+.popular article{
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1em;
 }
 
-.popular ::marker{
-    content: '0' counter(popular);
+.popular img{
+    grid-row: 1/span 3;
+    height: 100%;
+    object-fit: cover;
+}
+
+.popular p{
+    margin: 0;
+}
+
+.popular header{
+    font-weight: 700;
+    font-size: 1.25em;
+}
+
+.popular li + li{
+    margin-block: 2.5em;
 }
