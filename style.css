@@ -46,6 +46,11 @@ body {
     margin: 0;
 }
 
+p{
+    color: var(--dark-grayish-blue);
+    line-height: 1.5;
+}
+
 a{
     text-decoration: none;
     color: inherit;
@@ -69,7 +74,7 @@ main {
         "featured"
         "new"
         "popular";
-    grid-gap: 1em;
+    grid-gap: 3.5em;
     margin-block-start: 1rem;
 }
 
@@ -86,29 +91,40 @@ header{
     grid-area: new;
     background-color: var(--very-dark-blue);
     color: var(--grayish-blue);
-    padding: 1.5em;
-    font-size: 10px;
+    padding: 1em;
+}
+
+.new ul{
+    margin:0;
+    padding:0;
+    list-style: none;
 }
 
 .new>header {
     color: var(--soft-orange);
-    font-size: 2em;
+    font-size: 2rem;
     font-weight: 700;
 }
 
-.new article {
-    padding-block: 1.5em;
+.new li:not(:last-child) {
+    padding-block-end: 1.25em;
 }
 
-.new hr {
-    border-color: var(--grayish-blue);
-    border-style: solid;
+.new p{
+    color: var(--grayish-blue);
+}
+
+.new li:nth-child(even){
+    border-block-color: var(--dark-grayish-blue);
+    border-block-width: 1px;
+    border-block-style: solid;
 }
 
 .new article header {
     color: var(--off-white);
-    font-size: 1.5em;
+    font-size: 1.25rem;
     font-weight: 600;
+    margin-block-start: 1.5em;
 }
 
 .popular {
@@ -175,18 +191,32 @@ nav{
 }
 
 .featured header{
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 800;
+    margin-block-start: .5em;
+    line-height: 1;
 }
 
 a.button{
     padding-inline: 2em;
-    padding-block: .75em;
-    font-size: .75rem;
+    padding-block: 1em;
     font-weight: 700;
     letter-spacing: 4px;
     text-transform: uppercase;
-    width: fit-content;
+    align-self: flex-start;
     background-color: var(--soft-red);
     color: var(--off-white);
+    margin-block-start: .5em;
+}
+
+.popular ol{
+    counter-reset: popular;
+}
+
+.popular ol > li{
+    counter-increment: popular;
+}
+
+.popular ::marker{
+    content: '0' counter(popular);
 }
