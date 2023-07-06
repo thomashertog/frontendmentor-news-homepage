@@ -7,6 +7,7 @@
   <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | News homepage</title>
 
@@ -29,16 +30,16 @@
     <header>
       <h1 class="sr-only">News website</h1>
       <img src="assets/images/logo.svg" alt="">
-      <button type="button" class="menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+      <button type="button" class="menu-btn" aria-label="Toggle Menu" aria-expanded="false" id="js-menu-button">
         <img src="assets/images/icon-menu.svg" alt="" class="menu-open">
       </button>
-      <nav>
+      <nav role="navigation">
         <a href="#main">Home</a>
         <a href="#new">New</a>
         <a href="#popular">Popular</a>
         <a href="#">Trending</a>
         <a href="#">Categories</a>
-        <button type="button" class="menu-btn" aria-label="Close">
+        <button type="button" class="menu-btn" aria-label="Close" id="js-close-menu">
           <img src="assets/images/icon-menu-close.svg" alt="" class="menu-close">
         </button>
       </nav>
@@ -47,73 +48,56 @@
       <article class="featured">
         <header><a href="#">The Bright Future of Web 3.0?</a></header>
         <p>
-          We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of
+          We dive into the next evolution of the web that claims to put the power of the platforms back into the hands
+          of
           the people.
           But is it really fulfilling its promise?
         </p>
         <picture>
-          <img src="assets/images/image-web-3-mobile.jpg" alt="modern version of the 'ketnetkroket'">
+          <source media="(min-width: 40rem)" srcset="assets/images/image-web-3-desktop.jpg">
+          <source media="(max-width: 40rem)" srcset="assets/images/image-web-3-mobile.jpg"> <img src="assets/images/image-web-3-mobile.jpg" alt="modern version of the 'ketnetkroket'">
         </picture>
         <a href="#" class="button">Read more</a>
       </article>
       <section class="new" id="new">
         <header>New</header>
-        <ul>
-          <li>
-            <article>
-              <header><a href="#">Hydrogen VS Electric Cars</a></header>
-              <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
-            </article>
-          </li>
-          <li>
-            <article>
-              <header><a href="#">The Downsides of AI Artistry</a></header>
-              <p>What are the possible adverse effects of on-demand AI image generation?</p>
-            </article>
-          </li>
-          <li>
-            <article>
-              <header><a href="#">Is VC Funding Drying Up?</a></header>
-              <p>Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
-            </article>
-          </li>
-        </ul>
+        <article>
+          <header><a href="#">Hydrogen VS Electric Cars</a></header>
+          <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+        </article>
+        <article>
+          <header><a href="#">The Downsides of AI Artistry</a></header>
+          <p>What are the possible adverse effects of on-demand AI image generation?</p>
+        </article>
+        <article>
+          <header><a href="#">Is VC Funding Drying Up?</a></header>
+          <p>Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+        </article>
       </section>
       <section class="popular" id="popular">
-          <header class="sr-only">Popular</header>
-          <ol role="list">
-            <li role="listitem">
-              <article>
-                <span aria-hidden="true" class="featured-article">01</span>
-                <header><a href="#">Reviving Retro PCs</a></header>
-                <p>What happens when old PCs are given modern upgrades?</p>
-                <img src="assets/images/image-retro-pcs.jpg" alt="old pcs in an office">
-              </article>
-            </li>
-            <li role="listitem">
-              <article>
-                <span aria-hidden="true" class="featured-article">02</span>
-                <header><a href="#">Top 10 Laptops of 2022</a></header>
-                <p>Our best picks for various needs and budgets.</p>
-                <img src="assets/images/image-top-laptops.jpg" alt="laptop keyboard with red lights">
-              </article>
-            </li>
-            <li role="listitem">
-              <article>
-                <span aria-hidden="true" class="featured-article">03</span>
-                <header><a href="#">The Growth of Gaming</a></header>
-                <p>How the pandemic has sparked fresh opportunities.</p>
-                <img src="assets/images/image-gaming-growth.jpg" alt="hand throwing controller up in the air">
-              </article>
-            </li>
-          </ol>
+        <header class="sr-only">Popular</header>
+        <article>
+          <span aria-hidden="true" class="featured-article">01</span>
+          <header><a href="#">Reviving Retro PCs</a></header>
+          <p>What happens when old PCs are given modern upgrades?</p>
+          <img src="assets/images/image-retro-pcs.jpg" alt="old pcs in an office">
+        </article>
+        <article>
+          <span aria-hidden="true" class="featured-article">02</span>
+          <header><a href="#">Top 10 Laptops of 2022</a></header>
+          <p>Our best picks for various needs and budgets.</p>
+          <img src="assets/images/image-top-laptops.jpg" alt="laptop keyboard with red lights">
+        </article>
+        <article>
+          <span aria-hidden="true" class="featured-article">03</span>
+          <header><a href="#">The Growth of Gaming</a></header>
+          <p>How the pandemic has sparked fresh opportunities.</p>
+          <img src="assets/images/image-gaming-growth.jpg" alt="hand throwing controller up in the air">
+        </article>
       </section>
     </main>
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
-    </div>
   </div>
+  <script src="script.js"></script>
 </body>
 
 </html>

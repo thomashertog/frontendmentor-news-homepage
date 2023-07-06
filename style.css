@@ -46,6 +46,8 @@ body {
     margin: 0;
 }
 
+
+
 p{
     color: var(--dark-grayish-blue);
     line-height: 1.5;
@@ -65,7 +67,9 @@ img {
 }
 
 .wrapper{
-    margin: 1rem;
+    margin: 1rem auto;
+    max-width: 1144px;
+    padding-inline: 1em
 }
 
 main {
@@ -81,6 +85,11 @@ main {
 header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+header > img{
+    max-block-size: 2rem;
 }
 
 .featured {
@@ -106,7 +115,7 @@ ul, ol{
     font-weight: 700;
 }
 
-.new li:not(:last-child) {
+.new article:not(:last-of-type) {
     padding-block-end: 1.25em;
 }
 
@@ -114,7 +123,11 @@ ul, ol{
     color: var(--grayish-blue);
 }
 
-.new li:nth-child(even){
+.new a:hover, .new a:focus-visible{
+    color: var(--soft-orange);
+}
+
+.new article:nth-of-type(even){
     border-block-color: var(--dark-grayish-blue);
     border-block-width: 1px;
     border-block-style: solid;
@@ -131,17 +144,18 @@ ul, ol{
     grid-area: popular;
 }
 
-@media screen and (min-width: 40rem) {
+@media screen and (min-width: 50rem) {
     main {
         grid-template-columns: repeat(3, 1fr);
         grid-template-areas:
             "featured featured new"
             "popular popular popular";
+        gap: 2.5rem;
     }
-
 }
 
-.overlay{
+body.with-overlay::before{
+    content: '';
     background-color: rgba(0,0,0,.25);
     position: absolute;
     top: 0;
@@ -154,10 +168,6 @@ ul, ol{
     background-color: transparent;
 }
 
-.menu-btn[aria-expanded=true] .menu-open{
-    display: none;
-}
-
 nav{
     background-color: var(--off-white);
     min-height: 100vh;
@@ -167,18 +177,22 @@ nav{
     display: flex;
     flex-direction: column;
     width: var(--menu-width);
-    padding: 1rem;
+    padding-block: 1rem;
     gap: 1rem;
 }
 
-.menu-btn[aria-expanded=false] + nav{
-    visibility: collapse;
+a:hover, a:focus-visible{
+    color: var(--soft-red);
 }
 
-.menu-btn[aria-label=Close]{
-    width: fit-content;
-    align-self: flex-end;
-    order: -1;
+@media screen and (min-width: 40rem) {
+    nav{
+        min-height: initial;
+        flex-direction: row;
+        position:initial;
+        gap: 2.5rem;
+        width: initial;
+    }
 }
 
 .featured{
@@ -209,6 +223,41 @@ a.button{
     margin-block-start: .5em;
 }
 
+a.button:hover, a.button:focus-visible{
+    background-color: var(--very-dark-blue);
+
+}
+
+@media screen and (min-width: 40rem) {
+    .featured{
+        display: grid;
+        grid-template-columns: subgrid;
+        row-gap: 2em;
+    }
+
+    .featured picture{
+        grid-column: span 2;
+    }
+
+    .featured header{
+        grid-row: span 2;
+        text-wrap: balance;
+        font-size: 3.5rem;
+        margin-block-start: initial;
+    }
+
+    a.button{
+        width: fit-content;
+    }
+}
+
+.popular{
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1/-1;
+    row-gap: 1em;
+}
+
 .popular .featured-article{
     color: var(--grayish-blue);
     font-size: 2em;
@@ -219,6 +268,7 @@ a.button{
     display: grid;
     grid-template-columns: 100px 1fr;
     gap: 1em;
+    align-content: space-between;
 }
 
 .popular img{
@@ -236,6 +286,38 @@ a.button{
     font-size: 1.25em;
 }
 
-.popular li + li{
-    margin-block: 2.5em;
+.popular ol{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+}
+
+@media screen and (min-width: 50rem) {
+    .popular ol{
+        display: contents;
+    }
+}
+
+nav{
+    visibility: collapse;
+    padding-inline: 1em;
+}
+
+nav .menu-btn{
+    align-self: end;
+    position: absolute;
+}
+
+.menu-btn[aria-expanded=true] + nav{
+    visibility: visible;
+}
+
+@media screen and (min-width: 40rem){
+    nav{
+        visibility: visible;
+    }
+
+    .menu-btn{
+        display: none;
+    }
 }
