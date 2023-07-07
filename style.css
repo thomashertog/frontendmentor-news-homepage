@@ -193,6 +193,7 @@ a:hover, a:focus-visible{
 .featured{
     display: flex;
     flex-direction: column;
+    gap: 1em;
 }
 
 .featured picture{
