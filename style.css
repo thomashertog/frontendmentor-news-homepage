@@ -110,8 +110,12 @@ ul, ol{
     font-weight: 700;
 }
 
-.new li:not(:last-of-type) {
-    padding-block-end: 1.25em;
+.new li {
+    padding-block: 1.25em;
+}
+
+.new li:last-of-type{
+    padding-block-end: 0;
 }
 
 .new p{
